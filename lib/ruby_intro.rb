@@ -3,10 +3,16 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  arr.inject(0, :+)
 end
 
 def max_2_sum arr
+  return 0 if arr.empty?
+  return arr[0] if arr.length == 1
+  arr.sort!
+  sum [arr[-1], arr[-2]]
+
+
   # YOUR CODE HERE
 end
 
