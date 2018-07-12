@@ -39,6 +39,7 @@ end
 
 def starts_with_consonant? s
   # YOUR CODE HERE
+  return true if /^[BCDFGHJKLMNPQRSTVXZ]/i.match(s)
 end
 
 def binary_multiple_of_4? s
