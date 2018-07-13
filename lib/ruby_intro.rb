@@ -54,11 +54,11 @@ class BookInStock
 # YOUR CODE HERE
 
 
-def initialize(isbn, price)
-  raise ArgumentError, 'erro' if !(isbn.is_a?(String)) || isbn.empty?
-  raise ArgumentError, 'erro' if price <= 0
-  @isbn = isbn
-  @price = price
+def initialize(*args)
+  raise ArgumentError, 'erro' if !(args[0].is_a?(String)) || args[0].empty?
+  raise ArgumentError, 'erro' if args[1] <= 0
+  @isbn = args[0]
+  @price = args[1]
 
 
 end
