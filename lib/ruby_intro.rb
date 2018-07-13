@@ -44,10 +44,29 @@ end
 
 def binary_multiple_of_4? s
   # YOUR CODE HERE
+  return true if s.to_i == 0
+
 end
 
 # Part 3
 
 class BookInStock
 # YOUR CODE HERE
+
+
+def initialize(isbn, price)
+  raise ArgumentError, 'erro' if !(isbn.is_a?(String)) || isbn.empty?
+  raise ArgumentError, 'erro' if price <= 0
+  @isbn = isbn
+  @price = price
+
+
+end
+
+attr_accessor :isbn, :price
+
+def price_as_string
+   sprintf("$%0.2f",@price)
+
+end
 end
