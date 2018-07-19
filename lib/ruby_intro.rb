@@ -39,12 +39,13 @@ end
 
 def starts_with_consonant? s
   # YOUR CODE HERE
-  return true if /^[BCDFGHJKLMNPQRSTVXZ]/i.match(s)
+   /^[BCDFGHJKLMNPQRSTVXZ]/i.match(s)
 end
 
 def binary_multiple_of_4? s
   # YOUR CODE HERE
-  return true if s.to_i == 0
+  return  false if s.empty? or !(s.delete("01").empty?)
+  s.to_i(2) % 4 == 0
 
 end
 
@@ -52,21 +53,18 @@ end
 
 class BookInStock
 # YOUR CODE HERE
+  def initialize(*args)
+    raise ArgumentError, 'erro' if !(args[0].is_a?(String)) || args[0]
+    .empty?
+    raise ArgumentError, 'erro' if args[1] <= 0
+    @isbn = args[0]
+    @price = args[1]
+  end
 
+  attr_accessor :isbn, :price
 
-def initialize(*args)
-  raise ArgumentError, 'erro' if !(args[0].is_a?(String)) || args[0].empty?
-  raise ArgumentError, 'erro' if args[1] <= 0
-  @isbn = args[0]
-  @price = args[1]
+  def price_as_string
+    sprintf("$%0.2f",@price)
 
-
-end
-
-attr_accessor :isbn, :price
-
-def price_as_string
-   sprintf("$%0.2f",@price)
-
-end
+  end
 end
